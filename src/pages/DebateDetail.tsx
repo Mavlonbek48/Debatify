@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { Timer } from '../components/Timer';
+import { TimerControl } from '../components/TimerControl';
 import { Scoring } from '../components/Scoring';
 import { Awards } from '../components/Awards';
 
@@ -205,7 +205,7 @@ export const DebateDetail: React.FC = () => {
           </div>
         )}
 
-        {activeTab === 'timer' && <Timer />}
+        {activeTab === 'timer' && <TimerControl />}
 
         {activeTab === 'scoring' && (
           <Scoring

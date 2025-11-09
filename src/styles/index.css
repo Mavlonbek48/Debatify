@@ -798,6 +798,93 @@ body {
   color: var(--color-text-light);
 }
 
+.floating-timer {
+  position: fixed;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 1000;
+  font-family: inherit;
+}
+
+.floating-timer.collapsed {
+  width: auto;
+}
+
+.floating-timer.expanded {
+  width: 200px;
+}
+
+.floating-timer-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  transition: all 0.2s;
+}
+
+.floating-timer-header:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.timer-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.timer-circle.warning {
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  animation: pulse 1s infinite;
+}
+
+.timer-display {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-indicator {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-success);
+  text-transform: uppercase;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0.5;
+  }
+}
+
+.floating-timer-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+  padding-top: var(--spacing-xs);
+  border-top: 1px solid var(--color-border);
+}
+
+.floating-timer-controls .btn {
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .dashboard-header {
     flex-direction: column;
@@ -838,5 +925,19 @@ body {
 
   .individual-scoring {
     grid-template-columns: 1fr;
+  }
+
+  .floating-timer {
+    bottom: var(--spacing-sm);
+    right: var(--spacing-sm);
+  }
+
+  .timer-circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .timer-display {
+    font-size: 1.25rem;
   }
 }
